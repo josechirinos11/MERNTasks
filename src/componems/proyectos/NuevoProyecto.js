@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useState } from 'react';
 import proyectoContext from '../../context/proyectos/proyectoContext'
 
-
 const NuevoProyecto = () => {
 
     //state del proyecto

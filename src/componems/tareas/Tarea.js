@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 
 
 const Tarea = ({ tarea }) => {
+
+
+
     return (
         <li className="tarea sombra">
             <p>{tarea.nombre} </p>

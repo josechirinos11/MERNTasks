@@ -3,7 +3,8 @@ import {
     OBTENER_PROYECTOS,
     AGREGAR_PROYECTO,
     VALIDAR_FORMULARIO,
-    PROYECTO_ACTUAL
+    PROYECTO_ACTUAL,
+    MOSTRAR_TITULO
 } from '../../types'
 
 
@@ -39,6 +40,11 @@ export default (state, action) => {
             return {
                 ...state,
                 proyecto: state.proyectos.filter(proyecto => proyecto.id === action.payload)
+            }
+        case MOSTRAR_TITULO:
+            return {
+                ...state,
+                proyecto: state.proyectos.nombre
             }
 
         default:

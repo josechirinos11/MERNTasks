@@ -15,7 +15,8 @@ import {
     OBTENER_PROYECTOS,
     AGREGAR_PROYECTO,
     VALIDAR_FORMULARIO,
-    PROYECTO_ACTUAL
+    PROYECTO_ACTUAL,
+    MOSTRAR_TITULO
 } from '../../types'
 
 
@@ -93,6 +94,14 @@ const ProyectoState = props => {
     }
 
 
+    const tituloProyecto = (proyecto) => {
+        dispatch({
+            type: MOSTRAR_TITULO,
+            payload: proyecto
+        })
+    }
+
+
 
     return (
         <proyectoContext.Provider
@@ -101,6 +110,7 @@ const ProyectoState = props => {
                 formulario: state.formulario,
                 errorformulario: state.errorformulario,
                 proyecto: state.proyecto,
+
                 mostrarFormulario,
                 obtenerProyectos,
                 agregarProyecto,
