@@ -10,7 +10,7 @@ const ListadoTarea = () => {
 
 
     const proyectosContext = useContext(proyectoContext)
-    const { proyecto } = proyectosContext
+    const { proyecto, eliminarProyecto } = proyectosContext
 
 
     if (!proyecto) return <h2>SELECCIONA UN PROYECTO</h2>
@@ -29,7 +29,10 @@ const ListadoTarea = () => {
 
     ]
 
-
+    //eliminar proyecto
+    const onClickeliminarProyecto = () => {
+        eliminarProyecto(proyectoActual.id)
+    }
 
 
 
@@ -40,6 +43,7 @@ const ListadoTarea = () => {
             <button
                 type="button"
                 className="btn btn-eliminar"
+                onClick={onClickeliminarProyecto}
             >Eliminar Proyecto</button>
 
 

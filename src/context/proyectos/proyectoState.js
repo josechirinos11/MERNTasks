@@ -16,7 +16,8 @@ import {
     AGREGAR_PROYECTO,
     VALIDAR_FORMULARIO,
     PROYECTO_ACTUAL,
-    MOSTRAR_TITULO
+    MOSTRAR_TITULO,
+    BOTON_ELIMINAR
 } from '../../types'
 
 
@@ -93,11 +94,12 @@ const ProyectoState = props => {
         })
     }
 
+    // ELIMINAR EL PROYECTO
 
-    const tituloProyecto = (proyecto) => {
+    const eliminarProyecto = (proyectoId) => {
         dispatch({
-            type: MOSTRAR_TITULO,
-            payload: proyecto
+            type: BOTON_ELIMINAR,
+            payload: proyectoId
         })
     }
 
@@ -115,7 +117,8 @@ const ProyectoState = props => {
                 obtenerProyectos,
                 agregarProyecto,
                 mostarError,
-                proyectoActual
+                proyectoActual,
+                eliminarProyecto
             }}
         >
             {props.children}

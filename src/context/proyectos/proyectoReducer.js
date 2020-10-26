@@ -4,7 +4,8 @@ import {
     AGREGAR_PROYECTO,
     VALIDAR_FORMULARIO,
     PROYECTO_ACTUAL,
-    MOSTRAR_TITULO
+    MOSTRAR_TITULO,
+    BOTON_ELIMINAR
 } from '../../types'
 
 
@@ -45,6 +46,12 @@ export default (state, action) => {
             return {
                 ...state,
                 proyecto: state.proyectos.nombre
+            }
+        case BOTON_ELIMINAR:
+            return {
+                ...state,
+                proyectos: state.proyectos.filter(proyecto => proyecto.id !== action.payload),
+                proyecto: null
             }
 
         default:
