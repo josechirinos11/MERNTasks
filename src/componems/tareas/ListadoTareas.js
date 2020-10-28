@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import Tarea from './Tarea'
 import proyectoContext from '../../context/proyectos/proyectoContext'
-
+import tareaContext from '../../context/tareas/tareaContext'
 
 
 
@@ -13,6 +13,14 @@ const ListadoTarea = () => {
     const { proyecto, eliminarProyecto } = proyectosContext
 
 
+
+    //obtener las tareas del proyecto
+    const tareasContext = useContext(tareaContext)
+    const { tareasproyecto } = tareasContext
+
+
+
+
     if (!proyecto) return <h2>SELECCIONA UN PROYECTO</h2>
 
 
@@ -20,14 +28,7 @@ const ListadoTarea = () => {
     const [proyectoActual] = proyecto
 
 
-    const tareasProyecto = [
-        { nombre: 'Elegir platafor', estado: true },
-        { nombre: 'Elegir color', estado: false },
-        { nombre: 'Elegir estados', estado: false },
-        { nombre: 'Elegir hosting', estado: true }
 
-
-    ]
 
     //eliminar proyecto
     const onClickeliminarProyecto = () => {
@@ -50,9 +51,9 @@ const ListadoTarea = () => {
 
             <h2>PROYECTO: {proyectoActual.nombre} en MERNTasks</h2>
             <ul className="listado-tareas">
-                {tareasProyecto.length === 0
+                {tareasproyecto.length === 0
                     ? (<li className="tarea">No hay tareas</li>)
-                    : tareasProyecto.map(tarea => (
+                    : tareasproyecto.map(tarea => (
                         <Tarea
                             tarea={tarea}
                         />
