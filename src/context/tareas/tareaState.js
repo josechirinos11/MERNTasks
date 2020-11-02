@@ -5,28 +5,30 @@ import tareaReducer from './tareaReducer'
 import {
     TAREAS_PROYECTO,
     AGREGAR_TAREA,
-    VALIDAR_TAREA
+    VALIDAR_TAREA,
+    ELIMINAR_TAREA,
+    ESTADO_TAREA
 } from '../../types'
 
 const TareaState = props => {
     const initialState = {
         tareas: [
-            { nombre: 'Elegir platafor', estado: true, proyectoId: 1 },
-            { nombre: 'Elegir color', estado: false, proyectoId: 2 },
-            { nombre: 'Elegir estados', estado: false, proyectoId: 3 },
-            { nombre: 'Elegir hosting', estado: true, proyectoId: 4 },
-            { nombre: 'Elegir platafor', estado: true, proyectoId: 1 },
-            { nombre: 'Elegir color', estado: false, proyectoId: 3 },
-            { nombre: 'Elegir estados', estado: false, proyectoId: 2 },
-            { nombre: 'Elegir hosting', estado: true, proyectoId: 4 },
-            { nombre: 'Elegir platafor', estado: true, proyectoId: 4 },
-            { nombre: 'Elegir color', estado: false, proyectoId: 2 },
-            { nombre: 'Elegir estados', estado: false, proyectoId: 3 },
-            { nombre: 'Elegir hosting', estado: true, proyectoId: 1 },
-            { nombre: 'Elegir platafor', estado: true, proyectoId: 4 },
-            { nombre: 'Elegir color', estado: false, proyectoId: 3 },
-            { nombre: 'Elegir estados', estado: false, proyectoId: 2 },
-            { nombre: 'Elegir hosting', estado: true, proyectoId: 1 }
+            { id: '1', nombre: 'Elegir platafor', estado: true, proyectoId: 1 },
+            { id: '2', nombre: 'Elegir color', estado: false, proyectoId: 2 },
+            { id: '3', nombre: 'Elegir estados', estado: false, proyectoId: 3 },
+            { id: '4', nombre: 'Elegir hosting', estado: true, proyectoId: 4 },
+            { id: '5', nombre: 'Elegir platafor', estado: true, proyectoId: 1 },
+            { id: '6', nombre: 'Elegir color', estado: false, proyectoId: 3 },
+            { id: '7', nombre: 'Elegir estados', estado: false, proyectoId: 2 },
+            { id: '8', nombre: 'Elegir hosting', estado: true, proyectoId: 4 },
+            { id: '9', nombre: 'Elegir platafor', estado: true, proyectoId: 4 },
+            { id: '10', nombre: 'Elegir color', estado: false, proyectoId: 2 },
+            { id: '11', nombre: 'Elegir estados', estado: false, proyectoId: 3 },
+            { id: '12', nombre: 'Elegir hosting', estado: true, proyectoId: 1 },
+            { id: '13', nombre: 'Elegir platafor', estado: true, proyectoId: 4 },
+            { id: '14', nombre: 'Elegir color', estado: false, proyectoId: 3 },
+            { id: '15', nombre: 'Elegir estados', estado: false, proyectoId: 2 },
+            { id: '16', nombre: 'Elegir hosting', estado: true, proyectoId: 1 }
 
 
         ],
@@ -74,7 +76,22 @@ const TareaState = props => {
         })
     }
 
+    // ELIMINAR EL TAREA
 
+    const eliminarTarea = (proyectoId) => {
+        dispatch({
+            type: ELIMINAR_TAREA,
+            payload: proyectoId
+        })
+    }
+
+    //CAMVIA EL ESTADO DE TAREA
+    const cambiarEstadoTarea = tarea => {
+        dispatch({
+            type: ESTADO_TAREA,
+            payload: tarea
+        })
+    }
 
     return (
         <tareaContext.Provider
@@ -84,7 +101,9 @@ const TareaState = props => {
                 errortarea: state.errortarea,
                 obtenerTareas,
                 agregarTarea,
-                validarTarea
+                validarTarea,
+                eliminarTarea,
+                cambiarEstadoTarea
             }}
         >
             {props.children}
