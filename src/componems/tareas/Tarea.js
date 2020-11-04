@@ -13,7 +13,7 @@ const Tarea = ({ tarea }) => {
 
     //obtener la funcion del context de tareadfsfgfg
     const tareasContext = useContext(tareaContext)
-    const { tareas, eliminarTarea, obtenerTareas, cambiarEstadoTarea } = tareasContext
+    const { tareas, eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual } = tareasContext
 
 
 
@@ -21,12 +21,6 @@ const Tarea = ({ tarea }) => {
     const [proyectoActual] = proyecto
 
 
-
-    const onSubmit = e => {
-        e.preventDefault()
-        console.log("desde el boto")
-
-    }
 
 
     // elimina tarea
@@ -48,6 +42,10 @@ const Tarea = ({ tarea }) => {
     }
 
 
+    //  agregar una tarea actual cuando el usuario le da editar
+    const seleccionarTarea = tarea => {
+        guardarTareaActual(tarea)
+    }
 
     return (
         <li className="tarea sombra">
@@ -77,6 +75,7 @@ const Tarea = ({ tarea }) => {
                 <button
                     type="button"
                     className="btn btn-primario"
+                    onClick={() => seleccionarTarea(tarea)}
                 >Editar</button>
                 <button
                     type="button"
